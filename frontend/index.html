@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance RAG Assistant</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Finance Intelligence Assistant</h1>
+
+    <div class="card">
+
+        <h2>Upload CSV</h2>
+
+        <input type="text" id="userId" placeholder="Enter User ID">
+
+        <input type="file" id="csvFile">
+
+        <button onclick="uploadFile()">
+            Upload Data
+        </button>
+
+        <p id="uploadStatus"></p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Ask Question</h2>
+
+        <textarea
+            id="query"
+            placeholder="How can I improve revenue?"
+        ></textarea>
+
+        <button onclick="analyzeData()">
+            Generate Report
+        </button>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Report</h2>
+
+        <pre id="report"></pre>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

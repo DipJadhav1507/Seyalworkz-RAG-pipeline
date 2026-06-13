@@ -1,14 +1,21 @@
 import os
 
-from fastapi import FastAPI
-from fastapi import UploadFile
-from fastapi import File
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi import FastAPI, UploadFile, File, Form
+
 
 from models import QueryRequest
 from vector_store import create_vector_store
-from rag import generate_report
+from RAG import generate_report
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],   # For development
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 UPLOAD_DIR = "uploads"
 
@@ -25,7 +32,7 @@ def home():
 @app.post("/upload")
 
 async def upload_csv(
-    user_id:str,
+    user_id: str = Form(...),
     file:UploadFile = File(...)
 ):
 
